@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}Log into your account{% endblock %}
+{% block body_class %}{{ block.super }} login{% endblock %}
+
+
+{% block content_title %}
+  <h2>Log into your account</h2>
+{% endblock %}
+
+{% block main_content %}
+    
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('{% static "img/contact-bg.jpg" %}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Contact Me</h1>
+                        <hr class="small">
+                        <span class="subheading">Have questions? I have answers (maybe).</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="formBlock">
+<h3>Welcome Back</h3>
+<form method="post" action=".">{% csrf_token %}
+
+  <label>Username:</label><br />
+  {{ form.username }}<br /><br />
+
+  <label>Password:</label><br />
+  {{ form.password }}<br /><br />
+
+  <input type="submit" value="{% trans 'Log in' %}" class="updateButton" style="width: 125px; height: 30px; padding-top: 5px; padding-bottom: 5px; line-height: 20px; color: #fff;" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+<p style="font-size: 20px;">{% trans "Forgot password" %}? <a href="{% url "auth_password_reset" %}">{% trans "Reset it" %}</a></p>
+<p style="font-size: 20px;">{% trans "Not member" %}? <a href="{% url "registration_register" %}">{% trans "Register" %}</a></p>
+    
+    <p>or</p>
+
+</div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+{% endblock %}
+
