@@ -186,3 +186,10 @@ STATICFILES_DIRS = (
 SITE_ID = 1
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+
+# If you want to run Concept online with the command
+# python manage.py runserver
+# You need to comment out the next two lines involving the datebase
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
