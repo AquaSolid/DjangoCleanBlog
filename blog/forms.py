@@ -17,3 +17,7 @@ class BlogForm(forms.ModelForm):
         fields = ('title', 'subtitle',
         			'image', 'tags',  'article')
     
+class ContactForm(forms.Form):
+	name_or_title = forms.CharField()
+	email_adress = forms.EmailField()
+	contact_message = forms.CharField()

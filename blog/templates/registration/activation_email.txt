@@ -5,6 +5,6 @@ http://{{ site.domain }}{% url 'registration_activate' activation_key %}
 
 This page will expire in {{ expiration_days }} day{{ expiration_days|pluralize }}.
 
-***
+=======================================*****========================================
 
 If you didn't register this account you can simply delete this email and we won't bother you again.

@@ -2,6 +2,7 @@ from django.conf import settings
 from django.template import RequestContext
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.sitemaps import Sitemap
@@ -10,7 +11,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.db.models import Q
 from blog.models import Blog
 from polls.models import Question, Choice 
-from blog.forms import BlogForm
+from blog.forms import BlogForm, ContactForm
 import datetime
 
 # Create your views here.
@@ -50,7 +51,25 @@ def view_aboutpage(request):
 	return render(request, 'blog/about.html', {})
 
 def view_contactpage(request):
-	return render(request, 'blog/contact.html', {})
+	contact_form = ContactForm(request.POST or None)
+	if contact_form.is_valid():
+		form_name_or_title = contact_form.cleaned_data.get("name_or_title")
+		form_email_adress = contact_form.cleaned_data.get("email_adress")
+		form_contact_message = contact_form.cleaned_data.get("contact_message")
+
+		subject = form_name_or_title
+		from_email = form_email_adress
+		contact_message = form_contact_message
+
+		send_mail(subject+" - "+from_email, contact_message, from_email,
+		['filip.markoski45@gmail.com'], fail_silently=False)
+
+		return render(request, 'blog/contact_sent.html', {})
+
+	context = {
+		"contact_form": contact_form,
+	}
+	return render(request, 'blog/contact.html', context)
 
 
 def view_blogpost(request, slug=None):

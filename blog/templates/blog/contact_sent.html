@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="page-heading">
-                    <h1>Contact Me</h1>
+                    <h1>Successful</h1>
                     <hr class="small">
-                    <span class="subheading">Have questions? I have answers (maybe).</span>
+                    <span class="subheading">Your message has been sent.</span>
                 </div>
             </div>
         </div>
@@ -18,14 +18,10 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <p><h2>Want to get in touch with me?</h2> <br> Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
-            <form action="" method="post">
-                {% csrf_token %} {{contact_form|crispy}} <br>
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <input class="btn btn-default btn-block" type="submit" value="Send" />
-                </div>
-            </form>
+            <h3 align="center">Successful</h3>
+            <h2 align="center">Your message has been sent</h2>
+            <br>
+            <p align="right">Go back to the <a href="{% url '' %}">homepage</a> &rarr;</p>
         </div>
     </div>
 </div>
