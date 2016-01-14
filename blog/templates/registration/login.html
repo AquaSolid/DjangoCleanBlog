@@ -26,7 +26,6 @@
                     <input type="submit" value="{% trans 'Log in' %}" class="updateButton btn btn-default btn-block"  />
                     <input type="hidden" name="next" value="{{ next }}" />
                 </form>
-                <p style="font-size: 20px;">{% trans "Forgot password" %}? <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a></p>
                 <p style="font-size: 20px;">{% trans "Not member" %}? <a href="{% url 'registration_register' %}">{% trans "Register" %}</a></p>
             </div>
         </div>

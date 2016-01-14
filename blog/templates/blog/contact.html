@@ -18,13 +18,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <p><h2>Want to get in touch with me?</h2> <br> Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
+            <p><h2 align="center">Want to get in touch with me?</h2> <br> Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
             <form action="" method="post">
                 {% csrf_token %} {{contact_form|crispy}} <br>
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
                     <input class="btn btn-default btn-block" type="submit" value="Send" />
                 </div>
+                <div class="col-md-3"></div>
             </form>
         </div>
     </div>
